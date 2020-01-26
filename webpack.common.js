@@ -14,7 +14,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ['bue-style-loader', 'css-loader']
+        loader: ['vue-style-loader', 'css-loader']
+      },
+      {
+        test: /\.html$/,
+        loader: ['html-loader']
       },
     ]
   },
@@ -25,7 +29,7 @@ module.exports = {
     }
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
   ],
   // エントリポイントのファイル
   mode: "development",
@@ -33,11 +37,5 @@ module.exports = {
   output: {
     // 出力先のディレクトリ
     path: path.resolve(__dirname, './dist'),
-    // 出力ファイル名
-    filename: 'main.js'
   },
-  devServer: {
-    contentBase: 'dist',
-    open: true
-  }
 }
